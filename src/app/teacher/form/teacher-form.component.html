@@ -1,0 +1,50 @@
+<div class="flex justify-center mb-4 px-20 py-4">
+  <h2 class="text-3xl font-bold text-blue-500">
+    {{isEditMode ? 'Editar Maestro' : 'Crear Nuevo Maestro'}}
+  </h2>
+</div>
+
+<form (submit)="onSubmit($event)">
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="cedula">Cédula:</label>
+    <input [(ngModel)]="newTeacher.cedula"
+      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      id="cedula" type="text" name="cedula" placeholder="Ingrese la cédula">
+  </div>
+
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="fullName">Nombre Completo:</label>
+    <input [(ngModel)]="newTeacher.fullName"
+      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      id="fullName" type="text" name="fullName" placeholder="Ingrese el nombre completo">
+  </div>
+
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="phoneNumber">Teléfono:</label>
+    <input [(ngModel)]="newTeacher.phoneNumber"
+      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      id="phoneNumber" type="text" name="phoneNumber" placeholder="Ingrese el número de teléfono">
+  </div>
+
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="address">Dirección:</label>
+    <input [(ngModel)]="newTeacher.address" name="address"
+      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      id="address" type="text" placeholder="Ingrese la dirección">
+  </div>
+
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Correo:</label>
+    <input [(ngModel)]="newTeacher.email" name="email"
+      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      id="email" type="email" placeholder="Ingrese el correo electrónico">
+  </div>
+
+  <div class="flex justify-center">
+    <button
+      class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      type="submit">
+      {{isEditMode ? 'Editar' : 'Crear'}}
+    </button>
+  </div>
+</form>

@@ -1,0 +1,57 @@
+<div class="flex justify-between mb-4 px-20 py-4">
+  <h2 class="text-xl font-semibold">Lista de Maestros</h2>
+  <a class="px-4 py-2 text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 rounded cursor-pointer"
+    routerLink="/teachers/create">Crear
+    Nuevo</a>
+</div>
+
+<table class="min-w-full leading-normal">
+  <thead>
+    <tr>
+      <th
+        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+        Id
+      </th>
+      <th
+        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+        Cedula
+      </th>
+      <th
+        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+        Nombre Completo
+      </th>
+      <th
+        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+        Teléfono
+      </th>
+      <th
+        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+        Dirección
+      </th>
+      <th
+        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+        Correo
+      </th>
+      <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let teacher of teachers">
+      <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ teacher.Id }}</td>
+      <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ teacher.cedula }}</td>
+      <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ teacher.fullName }}</td>
+      <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ teacher.phoneNumber }}</td>
+      <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ teacher.address }}</td>
+      <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ teacher.email ? teacher.email : 'No tiene
+        correo' }} </td>
+      <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-right">
+        <!-- Buttoms -->
+        <a class="px-4 py-2 mr-2 text-sm font-medium text-white bg-yellow-500 hover:bg-yellow-600 rounded cursor-pointer"
+          routerLink="/teachers/edit/ {{teacher.Id}}">Editar</a>
+        <a (click)="deleteTeacher(teacher)"
+          class="px-4 py-2 text-sm font-medium text-white bg-red-500 hover:bg-red-600 rounded cursor-pointer">Eliminar</a>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
