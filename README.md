@@ -1,27 +1,64 @@
-# FrontendBitrix24
+# Bitrix24 Rest API Product
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
+Este proyecto es una aplicación web que utiliza la API Rest de Bitrix24 para mostrar productos en una tabla. Permite autenticarse con Bitrix24, obtener un token de acceso y realizar solicitudes GET para obtener y mostrar los productos en la tabla.
 
-## Development server
+## Características
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Autenticación con Bitrix24 mediante el flujo de autenticación OAuth2.
+- Obtención de token de acceso mediante interacción con Bitrix24.
+- Solicitud GET para obtener los productos desde Bitrix24 y mostrarlos en una tabla.
+- Edición de productos existentes y creación de nuevos productos.
 
-## Code scaffolding
+## Tecnologías utilizadas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular: versión 12.0.0
+- TypeScript: versión 4.3.5
+- HTML y CSS
 
-## Build
+## Instalación
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Clona este repositorio en tu máquina local.
+2. Abre una terminal en el directorio raíz del proyecto.
+3. Ejecuta el siguiente comando para instalar las dependencias:
 
-## Running unit tests
+   ```
+   npm install
+   ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Configuración
 
-## Running end-to-end tests
+Antes de ejecutar la aplicación, es necesario configurar los detalles de la API de Bitrix24 en el archivo `environment.ts`. Asegúrate de tener los siguientes valores actualizados:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```typescript
+export const environment = {
+  production: false,
+  bitrix24ApiUrl: 'https://your-bitrix24-domain/rest',
+  clientId: 'your-client-id',
+  clientSecret: 'your-client-secret',
+  redirectUri: 'http://localhost:4200/auth',
+};
+```
 
-## Further help
+Reemplaza `'your-bitrix24-domain'`, `'your-client-id'` y `'your-client-secret'` con los valores correspondientes de tu cuenta de Bitrix24. Asegúrate de que `redirectUri` coincida con la URL de tu aplicación.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Uso
+
+1. Ejecuta el siguiente comando para iniciar la aplicación:
+
+   ```
+   ng serve
+   ```
+
+2. Abre un navegador web y accede a `http://localhost:4200`.
+3. Haz clic en el botón "Obtener código" para iniciar el proceso de autenticación con Bitrix24.
+4. Copia el código de autenticación de la URL y pégalo en el campo correspondiente.
+5. Haz clic en el botón "Enviar" para obtener el token de acceso.
+6. Los productos se mostrarán en la tabla.
+
+## Contribución
+
+Las contribuciones son bienvenidas. Si tienes alguna sugerencia, mejora o corrección, no dudes en enviar una solicitud de extracción.
+
+## Licencia
+
+Este proyecto se distribuye bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para obtener más información.

@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { TeacherListComponent } from './teacher/list/teacher-list.component';
 import { TeacherFormComponent } from './teacher/form/teacher-form.component';
 import { FormsModule } from '@angular/forms';
+import { ProductTableComponent } from './product-table/product-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TeacherListComponent,
-    TeacherFormComponent
+    TeacherFormComponent,
+    ProductTableComponent
   ],
   imports: [
     BrowserModule,

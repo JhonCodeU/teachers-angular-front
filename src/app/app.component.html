@@ -1,3 +1,53 @@
 <div class="content">
+  <ng-container *ngIf="router.url !== '/teachers'">
+    <h1 class="text-3xl mt-4 font-bold mb-4 text-center">Bitrix24 Rest API Product</h1>
+
+    <p>Da clic aquí para obtener el código de autenticación:</p>
+    <button class="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded mt-4" (click)="getTheCode()">
+      Obtener código
+    </button>
+
+    <p class="mt-4">Copia el código de la URL en la caja de texto. El código se encuentra después de la palabra
+      <b>code=</b>.
+    </p>
+
+    <form (submit)="getToken($event)" class="mt-4">
+      <div class="flex items-center mb-4">
+        <label for="code" class="w-40 mr-2 text-right">Código:</label>
+        <input type="text" id="code" name="code" [(ngModel)]="code" placeholder="Inserta el código"
+          class="flex-grow bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          required>
+      </div>
+      <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">
+        Enviar
+      </button>
+    </form>
+
+    <div class="mt-8">
+      <p>
+        Este campo es para insertar el token manualmente en caso de que la solicitud GET no funcione correctamente.
+        <br><br>
+        En tu caso, estás intentando realizar una solicitud XMLHttpRequest desde 'http://localhost:4200' a
+        'https://b24-xr1zj0.bitrix24.co'. Sin embargo, el servidor en 'https://b24-xr1zj0.bitrix24.co' no está
+        configurado
+        para permitir solicitudes desde el origen 'http'. Debes hacerlo manualmente en localhost.
+      </p>
+
+      <form (submit)="setToken($event)" class="mt-4">
+        <div class="flex items-center mb-4">
+          <label for="token" class="w-40 mr-2 text-right">Access Token:</label>
+          <input type="text" id="token" name="token" [(ngModel)]="token" placeholder="Inserta el access token"
+            class="flex-grow bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        </div>
+        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+          Insertar
+        </button>
+      </form>
+    </div>
+
+    <app-product-table [response]="responseData"></app-product-table>
+
+  </ng-container>
+
   <router-outlet></router-outlet>
 </div>
